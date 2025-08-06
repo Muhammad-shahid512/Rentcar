@@ -21,8 +21,8 @@ Route::get('/', function () {
 });Route::get('/view', function () {
     return view('frontend.dashboard.data');
 });
-Route::get('/a', function () {
-    return view('frontend.dashboard.a');
+Route::get('/dashboard', function () {
+    return view('frontend.dashboard.pannel');
 });
 
 
@@ -56,6 +56,7 @@ Route::get('car/add', [ CarCrudMgmt::class, 'showform' ])->name('car.add');
 Route::get('category/card', [ CarCrudMgmt::class, 'carcategory' ])->name('car.carcategory');
 Route::post('xyz/abc', [ CarCrudMgmt::class, 'store' ])->name('car.stores');
 Route::get('view/{id}', [ CarCrudMgmt::class, 'viewsingle' ])->name('car.view');
+Route::get('toggle/{id}', [ CarCrudMgmt::class, 'toggle' ])->name('car.toggle');
 
 Route::get('/cls', function () {
     $output = '';

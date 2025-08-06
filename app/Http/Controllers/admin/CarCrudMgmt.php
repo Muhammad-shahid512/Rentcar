@@ -73,4 +73,13 @@ $value = Vehical::where("id", $id)->with(["getcategory", "getfeature.getfeaturen
 }
 
     }
+
+
+    public function toggle($id)
+{
+    $item = Vehical::findOrFail($id);
+    $item->status = !$item->status;
+    $item->save();
+    return response()->json(['status' => $item->status]);
+}
 }

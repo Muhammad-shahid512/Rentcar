@@ -52,11 +52,20 @@
                                 <td>{{ $value->brand }}</td>
                                 <td>{{ $value->price }}</td>
                                 <td>61</td>
-                                <td><button class="btn btn-info btn-sm viewcar" data-id="{{ $value->id }}"><i
-                                            class="fas fa-eye"></button></i>
+                                <td>
+                                    <a href="javascript:void(0);" onclick="toggleStatus({{ $value->id }})"
+                                        id="status-icon-{{ $value->id }}">
+                                        @if ($value->status)
+                                            <i class="fas fa-toggle-on text-success fa-2x"></i>
+                                        @else
+                                            <i class="fas fa-toggle-off text-danger fa-2x"></i>
+                                        @endif
+                                    </a>
+
                                 </td>
                                 <td>
-
+                                    <button class="btn btn-info btn-sm viewcar" data-id="{{ $value->id }}"><i
+                                            class="fas fa-eye"></button></i>
                                     <button class="btn btn-secondary btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </button>
@@ -100,7 +109,30 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    function toggleStatus(id) {
+        // alert(id);
+        let icon = $('#status-icon-' + id + ' i');
+        // alert(icon)
+        $.ajax({
+            url: 'toggle/' + id,
+            type: 'GET',
+            success: function(response) {
+
+                if (response.status == 1) {
+                    icon.removeClass('fa-toggle-off text-danger').addClass(
+                        'fa-toggle-on text-success');
+                } else {
+                    icon.removeClass('fa-toggle-on text-success').addClass(
+                        'fa-toggle-off text-danger');
+                }
+            }
+        });
+    }
+</script>
+<script>
     $(document).ready(function() {
+
+
         $('.viewcar').on('click', function() {
             var id = $(this).data('id');
             $.ajax({
@@ -179,5 +211,7 @@
 
 
         });
+
+
     });
 </script>
