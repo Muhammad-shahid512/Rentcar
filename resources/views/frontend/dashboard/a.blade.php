@@ -45,6 +45,7 @@
                                     specifications.</p>
                                 <form action="action_page.php">
                                     <div class="row">
+                                        {{-- <div class="col-lg-6"></div> --}}
                                         <div class="col-lg-6 text-center">
                                             <img id="preview-image" src="{{ asset('admin/img/upload.svg') }}"
                                                 alt="Selected Car Image"

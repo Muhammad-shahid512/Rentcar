@@ -52,8 +52,10 @@ Route::post('featured/data/update', [ FeaturesCrudMgmt::class, 'updateFeaturesda
 
 
 Route::get('cars', [ CarCrudMgmt::class, 'index' ])->name('car.index');
-Route::post('car/post', [ CarCrudMgmt::class, 'store' ])->name('car.store');
-
+Route::get('car/add', [ CarCrudMgmt::class, 'showform' ])->name('car.add');
+Route::get('category/card', [ CarCrudMgmt::class, 'carcategory' ])->name('car.carcategory');
+Route::post('xyz/abc', [ CarCrudMgmt::class, 'store' ])->name('car.stores');
+Route::get('view/{id}', [ CarCrudMgmt::class, 'viewsingle' ])->name('car.view');
 
 Route::get('/cls', function () {
     $output = '';

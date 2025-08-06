@@ -12,6 +12,9 @@
 
     <title>@yield('title')</title>
 
+    <link href="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- Custom fonts for this template-->
     <link href="{{ asset('admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link
@@ -31,6 +34,12 @@
 
         input.is-invalid {
             border-color: red;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -460,6 +469,7 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('admin/js/toast.js') }}"></script>
 
     <!-- Page level plugins -->
     <script src="{{ asset('admin/vendor/chart.js/Chart.min.js') }}"></script>
@@ -468,6 +478,9 @@
     <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
 
+    <script src="{{ asset('admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('admin/js/demo/datatables-demo.js') }}"></script>
 </body>
 
 </html>
